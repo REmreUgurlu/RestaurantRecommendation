@@ -81,4 +81,3 @@ vendor_datas = []
 firefox_options = Options()
 firefox_options.headless = True
 driver = webdriver.Firefox(options=firefox_options)
-# driver.maximize_window()

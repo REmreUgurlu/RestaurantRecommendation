@@ -1,7 +1,4 @@
 import pandas as pd
-import os
-
-from DataAccess.Clean import DataClearer
 from DataAccess.Rules import DataAccessRules
 
 

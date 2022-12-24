@@ -1,10 +1,9 @@
-import pandas as pd
 from DataAccess.Read import ReadData
 import os
 
 
 def check_if_csv_exist(csv_url):
-    if os.path.exists('C:\\Users\\EMRE\\PycharmProjects\\RestaurantRecommendation\\{url}'.format(url=csv_url)):
+    if os.path.exists(csv_url):
         return True
     else:
         return False

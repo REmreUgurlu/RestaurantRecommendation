@@ -1,8 +1,6 @@
 import pandas as pd
 
 from DataAccess.Read import ReadData
-from DataAccess.Write import WriteData
-from DataCollection import DataCollector
 
 
 def check_recession(data):
@@ -28,10 +26,3 @@ def check_recession(data):
 
 
 recessed_rows = []
-
-
-
-
-
-
-
