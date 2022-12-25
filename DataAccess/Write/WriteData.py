@@ -1,6 +1,5 @@
 import pandas as pd
 from DataAccess.Rules import DataAccessRules
-from DataAccess.Read import ReadData
 
 restaurant_info_csv_url = 'restaurant_recommendation.csv'
 restaurant_menu_csv_url = 'restaurant_menus.csv'
