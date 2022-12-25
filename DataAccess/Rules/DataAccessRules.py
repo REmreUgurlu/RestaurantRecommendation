@@ -18,4 +18,4 @@ def check_if_restaurant_already_searched(restaurant_name):
         else:
             return False, 'This restaurant can be extracted'
     else:
-        return False, 'csv does not exist'
+        return False, 'Creating csv file'
