@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 from DataAccess.Write import WriteData
 from DataAccess.Rules import DataAccessRules
 
-from Recession import RecessionController
+from Regression import RegressionController
 
 
 def open_webpage(website_url):
@@ -46,8 +46,7 @@ def get_vendor_info():
     if rule_result[0] is True:
         print(rule_result[1])
         get_menus(vendor_name, rule_result[0])
-        print(RecessionController.check_recession(vendor_datas))
-        return
+        return RegressionController.check_regression(vendor_datas)
     else:
         print(rule_result[1])
         get_menus(vendor_name, rule_result[0])
