@@ -19,4 +19,4 @@ def read_from_csv_with_parameters(csv_url, column_name, column_value):
 
 
 restaurant_menu_csv_url = 'restaurant_menus.csv'
-restaurant_recommendation_csv_url = 'restaurant_recommendation.csv'
+restaurant_recommendation_csv_url = 'restaurant_infos.csv'
