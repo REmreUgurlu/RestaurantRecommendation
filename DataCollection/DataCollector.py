@@ -13,7 +13,7 @@ from Regression import RegressionController
 
 def open_webpage(website_url):
     firefox_options = Options()
-    firefox_options.headless = False
+    firefox_options.headless = True
     driver = webdriver.Firefox(options=firefox_options)
     try:
         driver.get(website_url)
