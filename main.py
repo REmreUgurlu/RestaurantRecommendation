@@ -14,7 +14,7 @@ def clear_input():
 def run(url):
     output_label.config(text="")
     DataCollector.open_webpage(url)
-    output_label.config(text="Restaurant Data is Extracted")
+    output_label.config(text="Restaurant Data is Extracted. You can close the app now.")
 
 
 maydonoz_url = "https://www.yemeksepeti.com/restaurant/sopa/maydonoz-doner-sopa"

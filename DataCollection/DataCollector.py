@@ -8,13 +8,12 @@ from selenium.webdriver.common.by import By
 from DataAccess.Write import WriteData
 from DataAccess.Rules import DataAccessRules
 
-from Regression import RegressionController
-
 
 def open_webpage(website_url):
     firefox_options = Options()
     firefox_options.headless = True
-    driver = webdriver.Firefox(options=firefox_options)
+    # driver = webdriver.Firefox(options=firefox_options)
+    driver = webdriver.Firefox(executable_path='Downloads', options=firefox_options)
     try:
         driver.get(website_url)
         time.sleep(5)
