@@ -3,11 +3,11 @@ import pandas as pd
 
 def read_from_restaurant_menus():
     df = pd.read_csv(restaurant_menu_csv_url)
-    print(len(df))
+    pd.DataFrame(df)
     return df
 
 
-def read_from_restaurant_recommendation():
+def read_from_restaurant_infos():
     df = pd.read_csv(restaurant_recommendation_csv_url)
     return df
 

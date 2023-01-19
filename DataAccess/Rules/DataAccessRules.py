@@ -12,7 +12,7 @@ def check_if_csv_exist(csv_url):
 def check_if_restaurant_already_searched(restaurant_name):
     rule_result = check_if_csv_exist(ReadData.restaurant_recommendation_csv_url)
     if rule_result is True:
-        df = ReadData.read_from_restaurant_recommendation()
+        df = ReadData.read_from_restaurant_infos()
         if restaurant_name in df.values:
             return True, 'This restaurant data is already extracted'
         else:

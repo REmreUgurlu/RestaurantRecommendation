@@ -1,19 +1,40 @@
 from DataCollection import DataCollector
+from DataAccess.Read import ReadData
 import tkinter as tk
+import threading
+from pandastable.core import Table
+from pandastable.core import TableModel
 
 
 def set_input(url):
     clear_input()
-    url_text.insert("1.0", url)
+    url_entry.insert(0, url)
 
 
 def clear_input():
-    url_text.delete("1.0", tk.END)
+    url_entry.delete(0, tk.END)
 
 
-def run(url):
-    output_label.config(text="")
-    DataCollector.open_webpage(url)
+def check_text_field_empty(*args):
+    if len(url_entry.get()) > 0:
+        send_button.config(state='normal')
+    else:
+        send_button.config(state='disabled')
+
+
+def run():
+    send_button.config(state='disabled')
+    output_label.config(text="Extracting Restaurant Data...")
+    DataCollector.open_webpage(url_entry.get())
+    send_button.config(state='normal')
+    new_window = tk.Toplevel(master=root)
+    new_window.title("Restaurant Menu")
+    new_window.geometry("1000x700")
+    frame = tk.Frame(new_window)
+    frame.pack()
+    df = ReadData.read_from_restaurant_menus()
+    table = Table(frame, dataframe=df, showtoolbar=True, showstatusbar=True, width=800, height=400)
+    table.show()
     output_label.config(text="Restaurant Data is Extracted. You can close the app now.")
 
 
@@ -50,10 +71,12 @@ restaurant_button_3.pack(side='left')
 restaurant_button_4 = tk.Button(master=middle1, text="Morgis", width=10, height=3, command=lambda: set_input(yemeksepeti_urls[3]) )
 restaurant_button_4.pack(side='left')
 
-url_text = tk.Text(master=middle2, width=50, height=3)
-url_text.pack(side='top')
+url_text_variable = tk.StringVar(middle2)
+url_entry = tk.Entry(master=middle2, textvariable=url_text_variable, width=80)
+url_entry.pack(side='top')
+url_text_variable.trace('w', check_text_field_empty)
 
-send_button = tk.Button(master=bottom1, text="Enter", width=10, height=3, command=lambda: run(url_text.get("1.0", tk.END)))
+send_button = tk.Button(master=bottom1, text="Enter", width=10, height=3,state='disabled', command=lambda: threading.Thread(target=run).start())
 send_button.pack(side='left')
 
 clear_button = tk.Button(master=bottom1, text="Clear", width=10, height=3, command=clear_input)
