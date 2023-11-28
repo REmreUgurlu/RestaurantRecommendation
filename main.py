@@ -33,7 +33,7 @@ def run():
     frame = tk.Frame(new_window)
     frame.pack()
     df = ReadData.read_from_restaurant_menus()
-    table = Table(frame, dataframe=df, showtoolbar=True, showstatusbar=True, width=800, height=400)
+    table = Table(frame, dataframe=df, showtoolbar=True, showstatusbar=True, width=1000, height=400)
     table.show()
     output_label.config(text="Restaurant Data is Extracted. You can close the app now.")
 
